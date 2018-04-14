@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="hmwrk.ClassListController">
+    <stylesheets>
+        <URL value="@classlist.css" />
+    </stylesheets>
+   <children>
+      <JFXListView fx:id="classListView" layoutX="14.0" layoutY="25.0" prefHeight="351.0" prefWidth="220.0" />
+   </children>
+</AnchorPane>
