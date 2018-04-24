@@ -116,7 +116,10 @@ public class Student {
         
         //Write the JSON object to the file
         PrintWriter pw = new PrintWriter(fileName);
-        pw.write(studentJO.toJSONString());       
+        pw.write(studentJO.toJSONString());
+        
+        pw.flush();
+        pw.close();
     }
     
 }
