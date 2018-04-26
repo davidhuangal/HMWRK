@@ -24,7 +24,6 @@ public class HomePageController extends Switchable implements Initializable {
     @FXML
     private JFXButton newButton;
 
-
     /**
      * Initializes the controller class.
      */
@@ -35,6 +34,7 @@ public class HomePageController extends Switchable implements Initializable {
 
     @FXML
     private void handleGoToClassList(ActionEvent event) {
+        Switchable.switchTo("ClassList");
     }
     
 
