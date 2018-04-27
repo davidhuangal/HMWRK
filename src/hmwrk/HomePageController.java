@@ -17,12 +17,14 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
@@ -42,6 +44,7 @@ public class HomePageController extends Switchable implements Initializable {
     private JFXButton newButton;
 
     private Stage stage;
+    
     /**
      * Initializes the controller class.
      */
@@ -53,7 +56,7 @@ public class HomePageController extends Switchable implements Initializable {
     @FXML
     private void handleLoadUserList(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JSON", "*.json"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TXT", "*.txt"));
         File file = fileChooser.showOpenDialog(stage);
         if (file != null){
             try{
@@ -86,6 +89,15 @@ public class HomePageController extends Switchable implements Initializable {
     }
     @FXML
     private void handleNewUserList(ActionEvent event) {
-        Switchable.switchTo("ClassList");
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("New user");
+        dialog.setHeaderText("Enter your name");
+        Optional<String> name = dialog.showAndWait();
+        if(name.isPresent()){
+            Student student = new Student();
+            student.name = name.get();
+            Switchable.currentStudent = student;
+            Switchable.switchTo("ClassList");
+        }
     }
 }

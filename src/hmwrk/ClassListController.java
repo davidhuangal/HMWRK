@@ -42,14 +42,16 @@ public class ClassListController extends Switchable implements Initializable {
         dialog.setHeaderText("Enter your new class name");
         Optional<String> name = dialog.showAndWait();
         if(name.isPresent()){
-            list.add(name.get());
+            classListView.getItems().add(name.get());
         }
     }
     @FXML
     private void savePerson(ActionEvent event) throws FileNotFoundException{
         FileChooser chooser = new FileChooser();
         File file = chooser.showSaveDialog(stage);
-        //Stuff to save student to new file goes here
+        if(file != null){
+            Switchable.currentStudent.writeStudentToJSON(file.getPath());
+        }
     }
 
     /**
