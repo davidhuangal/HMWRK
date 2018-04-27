@@ -6,6 +6,8 @@
 package hmwrk;
 
 import com.jfoenix.controls.JFXListView;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -15,6 +17,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,6 +27,7 @@ import javafx.scene.control.TextInputDialog;
  */
 public class ClassListController extends Switchable implements Initializable {
 
+    private Stage stage;
     @FXML
     private JFXListView<String> classListView;
     
@@ -39,6 +44,12 @@ public class ClassListController extends Switchable implements Initializable {
         if(name.isPresent()){
             list.add(name.get());
         }
+    }
+    @FXML
+    private void savePerson(ActionEvent event) throws FileNotFoundException{
+        FileChooser chooser = new FileChooser();
+        File file = chooser.showSaveDialog(stage);
+        //Stuff to save student to new file goes here
     }
 
     /**
