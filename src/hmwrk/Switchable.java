@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 public abstract class Switchable {
     public static Scene scene;
     public static final HashMap<String, Switchable> controllers = new HashMap<>();
+    public static Student currentStudent = null;
     
     private Parent root;  
     

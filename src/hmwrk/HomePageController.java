@@ -12,13 +12,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * FXML Controller class
@@ -49,14 +52,23 @@ public class HomePageController extends Switchable implements Initializable {
         if (file != null){
             try{
                 FileReader fileReader = new FileReader(file.getPath());
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
- 
-                String json = "";
-                String line = null;
-                while((line = bufferedReader.readLine()) != null) {
-                    json += line;
+                
+                try {
+                    Object obj = new JSONParser().parse(fileReader);
+                    JSONObject jo = (JSONObject) obj;
+                    
+                    String name = (String) jo.get("name");
+                    
+                    Student student = new Student();
+                    
+                    student.loadStudentFromJSON(jo);
+                    
+                    Switchable.currentStudent = student;
+                                                            
+                } catch (ParseException ex) {
+                    Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                bufferedReader.close();
+
                 fileReader.close();
             }
             catch(IOException ioex){

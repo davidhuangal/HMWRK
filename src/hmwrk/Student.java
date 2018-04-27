@@ -7,6 +7,7 @@ package hmwrk;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -22,13 +23,13 @@ import java.util.Iterator;
 public class Student {
     
     public String name;
-    public List<Course> courseList;
+    public List<Course> courseList = new ArrayList<>();
     
     public void loadStudentFromJSON(JSONObject studentJO) {
         
         // Get the name from the JSON file
         this.name = (String) studentJO.get("name");
-        
+                
         // Create a JSONArray and iterator to loop through each course the student is taking
         JSONArray ja1 = (JSONArray) studentJO.get("courseList");
         
@@ -53,15 +54,15 @@ public class Student {
                 String title = (String) currentHomeworkItem.get("title");
                 String completedStatus = (String) currentHomeworkItem.get("completedStatus");
                 String priority = (String) currentHomeworkItem.get("priority");
-                
+                                
                 HomeworkItem homeworkItem = new HomeworkItem(title, completedStatus, priority);
                 
                 course.addHomeworkItem(homeworkItem);
                 
             }
             
-            courseList.add(course);        
-        }        
+            courseList.add(course);     
+        }    
     }
     
     

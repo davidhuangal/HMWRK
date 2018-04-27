@@ -5,6 +5,7 @@
  */
 package hmwrk;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class Course {
     
     public String title;
     
-    private List<HomeworkItem> homeworkItems;
+    private List<HomeworkItem> homeworkItems = new ArrayList<>();
     
     public void addHomeworkItem(HomeworkItem item) {
         
