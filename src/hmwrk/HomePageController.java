@@ -43,7 +43,6 @@ public class HomePageController extends Switchable implements Initializable {
 
     @FXML
     private void handleGoToClassList(ActionEvent event) {
-        Switchable.switchTo("ClassList");
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JSON", "*.json"));
         File file = fileChooser.showOpenDialog(stage);
@@ -65,5 +64,6 @@ public class HomePageController extends Switchable implements Initializable {
                 System.out.println(message);
             }
         }
+        Switchable.switchTo("ClassList");
     }
 }
