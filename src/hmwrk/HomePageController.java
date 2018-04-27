@@ -11,6 +11,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +51,7 @@ public class HomePageController extends Switchable implements Initializable {
     }    
 
     @FXML
-    private void handleGoToClassList(ActionEvent event) {
+    private void handleLoadUserList(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JSON", "*.json"));
         File file = fileChooser.showOpenDialog(stage);
@@ -70,12 +76,16 @@ public class HomePageController extends Switchable implements Initializable {
                 }
 
                 fileReader.close();
+                Switchable.switchTo("ClassList");
             }
             catch(IOException ioex){
                 String message = "Exception occurred while opening " + file.getPath();
                 System.out.println(message);
             }
         }
+    }
+    @FXML
+    private void handleNewUserList(ActionEvent event) {
         Switchable.switchTo("ClassList");
     }
 }

@@ -15,8 +15,8 @@
         <URL value="@homepage.css" />
     </stylesheets>
    <children>
-      <JFXButton fx:id="loadButton" buttonType="RAISED" layoutX="358.0" layoutY="349.0" onAction="#handleGoToClassList" text="Load Student" textFill="WHITE" />
-      <JFXButton fx:id="newButton" buttonType="RAISED" layoutX="144.0" layoutY="349.0" onAction="#handleGoToClassList" stylesheets="@homepage.css" text="New Student" textFill="WHITE" />
+      <JFXButton fx:id="loadButton" buttonType="RAISED" layoutX="358.0" layoutY="349.0" onAction="#handleLoadUserList" text="Load Student" textFill="WHITE" />
+      <JFXButton fx:id="newButton" buttonType="RAISED" layoutX="144.0" layoutY="349.0" onAction="#handleNewUserList" stylesheets="@homepage.css" text="New Student" textFill="WHITE" />
       <Label fx:id="titleLabel" layoutX="179.0" layoutY="55.0" text="HMWRK">
          <font>
             <Font name="Helvetica Neue" size="64.0" />
