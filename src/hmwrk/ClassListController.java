@@ -11,17 +11,15 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-<<<<<<< HEAD
 import javafx.scene.control.Label;
-=======
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
->>>>>>> f0b86f69ddc11efdb351837e8ead776e90cb7ac3
 
 /**
  * FXML Controller class
@@ -31,20 +29,12 @@ import javafx.stage.Stage;
 public class ClassListController extends Switchable implements Initializable {
 
     private Stage stage;
+    
     @FXML
     private JFXListView<String> classListView;
     
-    //The list of classes that the student is enrolled in
-<<<<<<< HEAD
-    //These names will come from a JSON file.
-//    ObservableList<String> list = FXCollections.observableArrayList("Classes", "Go", "Here");
     ObservableList<String> list;
-
-      
-=======
-    //These names will come from a JSON file, but are currently set to test values
-    //just to see how it works.
-    ObservableList<String> list = FXCollections.observableArrayList("Classes", "Go", "Here");
+    
     @FXML
     private void addNewClass(ActionEvent event){
         TextInputDialog dialog = new TextInputDialog("");
@@ -61,7 +51,6 @@ public class ClassListController extends Switchable implements Initializable {
         File file = chooser.showSaveDialog(stage);
         //Stuff to save student to new file goes here
     }
->>>>>>> f0b86f69ddc11efdb351837e8ead776e90cb7ac3
 
     /**
      * Initializes the controller class.
