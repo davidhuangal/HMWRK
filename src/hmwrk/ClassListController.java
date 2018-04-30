@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXListView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -16,8 +17,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -47,6 +53,10 @@ public class ClassListController extends Switchable implements Initializable {
             course.title = name.get();
             Switchable.currentStudent.courseList.add(course);
         }
+    }
+    @FXML
+    private void addNewHomework(ActionEvent event){
+        //TO DO
     }
     @FXML
     private void savePerson(ActionEvent event) throws FileNotFoundException{
