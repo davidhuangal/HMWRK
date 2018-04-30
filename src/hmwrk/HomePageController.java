@@ -56,7 +56,7 @@ public class HomePageController extends Switchable implements Initializable {
     @FXML
     private void handleLoadUserList(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TXT", "*.txt"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JSON", "*.json"));
         File file = fileChooser.showOpenDialog(stage);
         if (file != null){
             try{
