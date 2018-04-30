@@ -43,6 +43,9 @@ public class ClassListController extends Switchable implements Initializable {
         Optional<String> name = dialog.showAndWait();
         if(name.isPresent()){
             classListView.getItems().add(name.get());
+            Course course = new Course();
+            course.title = name.get();
+            Switchable.currentStudent.courseList.add(course);
         }
     }
     @FXML
