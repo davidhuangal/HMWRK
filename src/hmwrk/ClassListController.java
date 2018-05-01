@@ -5,6 +5,7 @@
  */
 package hmwrk;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,6 +41,8 @@ public class ClassListController extends Switchable implements Initializable {
     private JFXListView<String> classListView;
     
     ObservableList<String> list;
+    @FXML
+    private JFXButton viewCourseButton;
     
     @FXML
     private void addNewClass(ActionEvent event){
@@ -52,12 +55,10 @@ public class ClassListController extends Switchable implements Initializable {
             Course course = new Course();
             course.title = name.get();
             Switchable.currentStudent.courseList.add(course);
+            Switchable.courses.put(name.get(), course);
         }
     }
-    @FXML
-    private void addNewHomework(ActionEvent event){
-        //TO DO
-    }
+
     @FXML
     private void savePerson(ActionEvent event) throws FileNotFoundException{
         FileChooser chooser = new FileChooser();
@@ -66,7 +67,17 @@ public class ClassListController extends Switchable implements Initializable {
             Switchable.currentStudent.writeStudentToJSON(file.getPath());
         }
     }
-
+    
+    @FXML
+    public void handleViewCourse() {
+        
+        String selection = classListView.getSelectionModel().getSelectedItem();
+        
+        Switchable.currentCourse = Switchable.courses.get(selection);
+        
+        
+        Switchable.switchTo("HomeworkListView");
+    }
     /**
      * Initializes the controller class.
      */
@@ -79,11 +90,17 @@ public class ClassListController extends Switchable implements Initializable {
                 
                 String title = (String) Switchable.currentStudent.courseList.get(i).title;
                 
+                // Add this course to the hashmap of courses
+                Switchable.courses.put(title, Switchable.currentStudent.courseList.get(i));
+                
                 classListView.getItems().add(title);
+                
+                
             }
         }
         
 
-    }    
+    }
+
     
 }

@@ -21,6 +21,10 @@ public abstract class Switchable {
     public static Scene scene;
     public static final HashMap<String, Switchable> controllers = new HashMap<>();
     public static Student currentStudent = null;
+    public static Course currentCourse = null;
+    public static HomeworkItem currentHomeworkItem = null;
+    public static final HashMap<String, Course> courses = new HashMap<>();
+    public static final HashMap<String, HomeworkItem> homeworkItems = new HashMap<>();
     
     private Parent root;  
     
