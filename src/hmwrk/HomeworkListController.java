@@ -69,11 +69,11 @@ public class HomeworkListController extends Switchable implements Initializable 
     
     public void handleViewDetails() {
         
-        String selection = hwListView.getSelectionModel().getSelectedItem();
+        String selection = (String) hwListView.getSelectionModel().getSelectedItem();
         
         Switchable.currentHomeworkItem = Switchable.homeworkItems.get(selection);
         
-        //TODO
+        Switchable.switchTo("HomeworkViewDetails");
     }
     
     

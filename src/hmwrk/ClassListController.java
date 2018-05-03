@@ -93,6 +93,12 @@ public class ClassListController extends Switchable implements Initializable {
                 // Add this course to the hashmap of courses
                 Switchable.courses.put(title, Switchable.currentStudent.courseList.get(i));
                 
+                for(int j = 0; j < Switchable.currentStudent.courseList.get(i).getHomeworkItemList().size(); j++) {
+                    String hwTitle = (String) Switchable.currentStudent.courseList.get(i).getHomeworkItemList().get(j).title;
+                    
+                    Switchable.homeworkItems.put(hwTitle, Switchable.currentStudent.courseList.get(i).getHomeworkItemList().get(j));
+                }
+                
                 classListView.getItems().add(title);
                 
                 
