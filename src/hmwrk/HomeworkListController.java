@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
@@ -71,11 +72,30 @@ public class HomeworkListController extends Switchable implements Initializable 
         
         String selection = (String) hwListView.getSelectionModel().getSelectedItem();
         
+        if(selection != null) {
+        
+            Switchable.currentHomeworkItem = Switchable.homeworkItems.get(selection);
+        
+            Switchable.switchTo("HomeworkViewDetails");
+            
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No homework");
+            alert.setHeaderText("No homework");
+            alert.setContentText("Your homework list is empty!");
+            alert.showAndWait();
+        }
+    }
+    public void handleDeleteItem(){
+        
+        String selection = (String) hwListView.getSelectionModel().getSelectedItem();
+        
         Switchable.currentHomeworkItem = Switchable.homeworkItems.get(selection);
         
-        Switchable.switchTo("HomeworkViewDetails");
+        Switchable.currentCourse.removeHomeworkItem(currentHomeworkItem);
+        
+        populateList();
     }
-    
     
     @FXML
     public void handleGoBackToCourses() {        

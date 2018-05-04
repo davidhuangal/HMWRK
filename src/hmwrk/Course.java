@@ -22,7 +22,10 @@ public class Course {
         
         this.homeworkItems.add(item);
     }
-    
+    public void removeHomeworkItem(HomeworkItem item) {
+        
+        this.homeworkItems.remove(item);
+    }
     public List<HomeworkItem> getHomeworkItemList() {
         return this.homeworkItems;
     }

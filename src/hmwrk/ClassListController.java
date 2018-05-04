@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
@@ -70,13 +71,23 @@ public class ClassListController extends Switchable implements Initializable {
     
     @FXML
     public void handleViewCourse() {
+            
+            String selection = classListView.getSelectionModel().getSelectedItem();
+            
+            if(selection != null){
         
-        String selection = classListView.getSelectionModel().getSelectedItem();
-        
-        Switchable.currentCourse = Switchable.courses.get(selection);
+                Switchable.currentCourse = Switchable.courses.get(selection);
         
         
-        Switchable.switchTo("HomeworkListView");
+                Switchable.switchTo("HomeworkListView");
+                
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Pick a class");
+            alert.setHeaderText("Pick a class");
+            alert.setContentText("Please pick a class to be viewed.");
+            alert.showAndWait();
+        }
     }
     /**
      * Initializes the controller class.
