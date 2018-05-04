@@ -67,7 +67,7 @@ public class HomeworkListController extends Switchable implements Initializable 
         
     }
     
-    
+    @FXML
     public void handleViewDetails() {
         
         String selection = (String) hwListView.getSelectionModel().getSelectedItem();
@@ -86,6 +86,7 @@ public class HomeworkListController extends Switchable implements Initializable 
             alert.showAndWait();
         }
     }
+    @FXML
     public void handleDeleteItem(){
         
         String selection = (String) hwListView.getSelectionModel().getSelectedItem();

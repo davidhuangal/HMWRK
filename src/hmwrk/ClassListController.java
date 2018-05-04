@@ -89,6 +89,25 @@ public class ClassListController extends Switchable implements Initializable {
             alert.showAndWait();
         }
     }
+    @FXML
+    public void deleteCourse() {
+        String selection = classListView.getSelectionModel().getSelectedItem();
+
+        Switchable.currentCourse = Switchable.courses.get(selection);
+        
+        Switchable.currentStudent.removeClass(currentCourse);
+        
+        classListView.getItems().clear();
+        
+        if(Switchable.currentStudent != null) {
+            for(int i = 0; i < Switchable.currentStudent.getCourseList().size(); i++) {
+                
+                String title = (String) Switchable.currentStudent.getCourseList().get(i).title;
+                               
+                classListView.getItems().add(title);
+            }
+        }
+    }
     /**
      * Initializes the controller class.
      */

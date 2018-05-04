@@ -122,5 +122,11 @@ public class Student {
         pw.flush();
         pw.close();
     }
+    public List<Course> getCourseList() {
+        return this.courseList;
+    }
+    public void removeClass(Course course) {
+        this.courseList.remove(course);
+    }
     
 }
