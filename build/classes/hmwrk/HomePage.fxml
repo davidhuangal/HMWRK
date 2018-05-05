@@ -10,10 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmwrk.HomePageController">
-    <stylesheets>
-        <URL value="@homepage.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmwrk.HomePageController">
    <children>
       <JFXButton fx:id="loadButton" buttonType="RAISED" layoutX="358.0" layoutY="349.0" onAction="#handleLoadUserList" text="Load Student" textFill="WHITE" />
       <JFXButton fx:id="newButton" buttonType="RAISED" layoutX="144.0" layoutY="349.0" onAction="#handleNewUserList" stylesheets="@homepage.css" text="New Student" textFill="WHITE" />

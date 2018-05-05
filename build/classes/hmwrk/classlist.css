@@ -3,5 +3,15 @@
  */
 
 .mainFxmlClass {
+    
+    -fx-background-image: url("https://www.littleastronaut.co/project/gradienty/9bb7c2-9b9afa-1920x1200.jpg");
 
+}
+
+#titleLabel, #subtitleLabel {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #3ccfcf;
 }

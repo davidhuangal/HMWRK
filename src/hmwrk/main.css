@@ -5,13 +5,14 @@
 .mainFxmlClass {
     
     -fx-background-image: url("https://www.littleastronaut.co/project/gradienty/9bb7c2-9b9afa-1920x1200.jpg");
-
+    -fx-font-family: "Helvetica Neue";
 }
 
-#titleLabel, #subtitleLabel {
+.label {
     -fx-text-fill: white;
 }
 
-#newButton, #loadButton {
+.button {
     -fx-background-color: #3ccfcf;
+    -fx-text-fill: white;
 }

@@ -8,15 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmwrk.HomeworkViewDetailsController">
-    <stylesheets>
-        <URL value="@homeworkviewdetails.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmwrk.HomeworkViewDetailsController">
    <children>
       <JFXButton fx:id="editButton" layoutX="269.0" layoutY="344.0" onAction="#handleEdit" prefHeight="27.0" prefWidth="65.0" text="Edit" />
       <Label fx:id="titleLabel" layoutX="284.0" layoutY="54.0" text="Label" />
       <Label fx:id="statusLabel" layoutX="284.0" layoutY="104.0" text="Label" />
       <Label fx:id="priorityLabel" layoutX="284.0" layoutY="163.0" text="Label" />
       <JFXButton fx:id="backButton" layoutX="48.0" layoutY="344.0" onAction="#handleGoBackToHomeworkList" prefHeight="27.0" prefWidth="65.0" text="Back" />
+      <Label layoutX="154.0" layoutY="54.0" text="TITLE:" />
+      <Label layoutX="154.0" layoutY="105.0" text="STATUS:" />
+      <Label layoutX="154.0" layoutY="163.0" text="PRIORITY:" />
    </children>
 </AnchorPane>
